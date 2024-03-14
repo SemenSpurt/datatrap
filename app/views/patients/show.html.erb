@@ -1,0 +1,26 @@
+<div class="demo-page">
+
+<%= render 'root/header' %>
+
+<main class="demo-page-content">
+  <section>
+  <h1><%= @patient.fio %></h1>
+
+  <ul>
+  <% @patient.observation.each do |observation| %>
+    <li>
+      <a href="<%= observation.patient_id %>/observations/<%= observation.id %>/edit"> 
+      <%= observation.observe_date %>
+      </a>
+    </li>
+  <% end %>
+  </ul>
+  <details><summary>
+    <div>
+      <%= link_to "Добавить наблюдение", new_patient_observation_path(@patient), :class => "toggle-code actions" %>
+      <%= link_to "Изменить данные пациента", edit_patient_path(@patient), :class => "toggle-code actions" %>
+    </div> 
+  </summary></details>
+  </section>
+</main>
+</div>

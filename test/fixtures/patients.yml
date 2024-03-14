@@ -1,0 +1,55 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fio: MyString
+  height: 1
+  weight: 1
+  sex: MyString
+  dob: 2024-01-15 17:56:56
+  age: 1
+  reg_date: 2024-01-15
+  orit_date: 2024-01-15
+  imt: 1.5
+  apache: 1.5
+  hobl: false
+  astma: false
+  diabeth: false
+  ssz: false
+  hypertony: false
+  hbp: false
+  smoking: false
+  obesity: false
+  revma: false
+  liver_illness: false
+  hep_b: false
+  hep_c: false
+  id1: false
+  id2: false
+  aids: false
+
+two:
+  fio: MyString
+  height: 1
+  weight: 1
+  sex: MyString
+  dob: 2024-01-15 17:56:56
+  age: 1
+  reg_date: 2024-01-15
+  orit_date: 2024-01-15
+  imt: 1.5
+  apache: 1.5
+  hobl: false
+  astma: false
+  diabeth: false
+  ssz: false
+  hypertony: false
+  hbp: false
+  smoking: false
+  obesity: false
+  revma: false
+  liver_illness: false
+  hep_b: false
+  hep_c: false
+  id1: false
+  id2: false
+  aids: false

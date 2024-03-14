@@ -1,0 +1,214 @@
+<div class="demo-page">
+
+<%= render 'root/header' %>
+
+<main class="demo-page-content">
+  <section>
+    <h1 class="package-name">Новый пациент</h1>
+    <%= form_for :patient, url: edit_patient_path do |form| %>
+
+      <div class="nice-form-group">
+      <%= form.label :reg_date, 'Дата поступления в клинику' %>
+      <%= form.date_field :reg_date %>
+      <% @patient.errors.full_messages_for(:reg_date).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+      </div>
+
+      <div class="nice-form-group">
+      <%= form.label :orit_date, 'Дата поступления в ОРИТ' %>
+      <%= form.date_field :orit_date, :required => true %>
+      <% @patient.errors.full_messages_for(:orit_date).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+      </div>
+
+      <div class="nice-form-group">
+      <%= form.label :fio, 'Ф.И.О.' %>
+      <%= form.text_field :fio, :required => true%>
+      <% @patient.errors.full_messages_for(:fio).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+      </div>
+
+      <div class="nice-form-group">
+      <%= form.label :height, 'Рост' %>
+      <%= form.text_field :height, placeholder: "см" %>
+      <% @patient.errors.full_messages_for(:height).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+      </div>
+
+      <div class="nice-form-group">
+      <%= form.label :weight, 'Вес' %>
+      <%= form.text_field :weight, placeholder: "кг" %>
+      <% @patient.errors.full_messages_for(:weight).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+      </div>
+
+      <div class="nice-form-group">
+      <%= form.label :sex, 'Пол' %>
+      <%= form.select :sex, ["М", "Ж"] %>
+      <% @patient.errors.full_messages_for(:weight).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+      </div>
+
+      <div class="nice-form-group">
+      <%= form.label :dob, 'Дата рождения' %>
+      <%= form.date_field :dob %>
+      <% @patient.errors.full_messages_for(:dob).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+      </div>
+
+      <div class="nice-form-group">
+      <%= form.label :imt, 'ИМТ' %>
+      <%= form.text_field :imt %>
+      <% @patient.errors.full_messages_for(:imt).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+      </div>
+
+      <div class="nice-form-group">
+      <%= form.label :apache, 'Шкала APACHE' %>
+      <%= form.text_field :apache %>
+      <% @patient.errors.full_messages_for(:apache).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+      </div>
+
+      <div class="nice-form-group">
+      <%= form.label :hobl, 'ХОБЛ' %>
+      <%= form.select :hobl, ["Нет", "Да"] %>
+      <% @patient.errors.full_messages_for(:hobl).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+      </div>
+
+      <div class="nice-form-group">
+      <%= form.label :astma, 'Астма' %>
+      <%= form.select :astma, ["Нет", "Да"] %>
+      <% @patient.errors.full_messages_for(:astma).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+      </div>
+
+      <div class="nice-form-group">
+      <%= form.label :diabeth, 'Диабет' %>
+      <%= form.select :diabeth, ["Нет", "Да"] %>
+      <% @patient.errors.full_messages_for(:diabeth).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+      </div>
+
+      <div class="nice-form-group">
+      <%= form.label :ssz, 'ССЗ' %>
+      <%= form.select :ssz, ["Нет", "Да"] %>
+      <% @patient.errors.full_messages_for(:ssz).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+      </div>
+
+      <div class="nice-form-group">
+      <%= form.label :hypertony, 'Гипертония' %>
+      <%= form.select :hypertony, ["Нет", "Да"] %>
+      <% @patient.errors.full_messages_for(:hypertony).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+      </div>
+
+      <div class="nice-form-group">
+      <%= form.label :hbp, 'ХБП' %>
+      <%= form.select :hbp, ["Нет", "Да"] %>
+      <% @patient.errors.full_messages_for(:hbp).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+      </div>
+
+      <div class="nice-form-group">
+      <%= form.label :smoking, 'Курение' %>
+      <%= form.select :smoking, ["Нет", "Да"] %>
+      <% @patient.errors.full_messages_for(:smoking).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+      </div>
+
+      <div class="nice-form-group">
+      <%= form.label :obesity, 'Ожирение' %>
+      <%= form.select :obesity, ["Нет", "Да"] %>
+      <% @patient.errors.full_messages_for(:obesity).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+      </div>
+
+      <div class="nice-form-group">
+      <%= form.label :revma, 'Ревматические болезни' %>
+      <%= form.select :revma, ["Нет", "Да"] %>
+      <% @patient.errors.full_messages_for(:revma).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+      </div>
+
+      <div class="nice-form-group">
+      <%= form.label :liver_illness, 'Болезни печени ' %>
+      <%= form.select :liver_illness, ["Нет", "Да"] %>
+      <% @patient.errors.full_messages_for(:liver_illness).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+      </div>
+
+      <div class="nice-form-group">
+      <%= form.label :hep_b, 'Гепатит Б' %>
+      <%= form.select :hep_b, ["Нет", "Да"] %>
+      <% @patient.errors.full_messages_for(:hep_b).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+      </div>
+
+      <div class="nice-form-group">
+      <%= form.label :hep_c, 'Гепатит С' %>
+      <%= form.select :hep_c, ["Нет", "Да"] %>
+      <% @patient.errors.full_messages_for(:hep_c).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+      </div>
+
+      <div class="nice-form-group">
+      <%= form.label :id1, 'Первичный ИД' %>
+      <%= form.select :id1, ["Нет", "Да"] %>
+      <% @patient.errors.full_messages_for(:id1).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+      </div>
+
+      <div class="nice-form-group">
+      <%= form.label :id2, 'Вторичный ИД' %>
+      <%= form.select :id2, ["Нет", "Да"] %>
+      <% @patient.errors.full_messages_for(:id2).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+      </div>
+
+      <div class="nice-form-group">
+      <%= form.label :aids, 'ВИЧ' %>
+      <%= form.select :aids, ["Нет", "Да"] %>
+      <% @patient.errors.full_messages_for(:aids).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+      </div>
+
+      <details>
+        <summary>
+          <div>
+            <%= form.submit "Сохранить", :class => "toggle-code actions" %>
+          </div>
+        </summary>
+      </details>
+    <% end %>
+    
+  </section>
+</main>
+</div>
+

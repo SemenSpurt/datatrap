@@ -1,0 +1,3 @@
+CREATE USER postgres;
+CREATE DATABASE datatrap;
+GRANT ALL PRIVILEGES ON DATABASE datatrap TO postgres;

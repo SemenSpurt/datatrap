@@ -1,0 +1,28 @@
+<div class="demo-page">
+
+<%= render 'root/header' %> 
+
+<main class="demo-page-content">
+  <section>
+    <h1 class="package-name">Пациенты</h1>
+    <ul>
+    <% @patients.each do |patient| %>
+      <li>
+        <%= link_to patient.fio, patient_path(patient.id) %>
+        </a>
+      </li>
+    <% end %>
+    </ul>
+    <details>
+    <summary>
+      <a href="/new-patient">  
+        <div class="toggle-code">
+        Новый пациент
+        </div>
+      </a>
+    </summary>
+    </details>
+  </section>
+</main>
+
+</div>

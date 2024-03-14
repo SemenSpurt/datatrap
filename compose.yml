@@ -1,0 +1,30 @@
+version: '3.4'
+
+services:
+  datatrap: 
+    build: . 
+    ports: 
+      - "3000:3000"
+    depends_on:
+      - database
+    volumes:  
+      - ./bin:/rails/bin
+      - ./app:/rails/app
+      - ./config/routes.rb:/rails/config/routes.rb
+    environment:
+      - RAILS_ENV=development
+
+  database:
+    image: postgres:16
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=datatrap
+
+volumes:
+  pg_data:

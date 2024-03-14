@@ -1,0 +1,497 @@
+<div class="demo-page">
+
+<%= render "root/header" %>
+
+<main class="demo-page-content">
+
+<section>
+  <h1 class="package-name">Новое наблюдение</h1>
+
+    <%= form_with model: @observations do |form| %>
+
+        <div class="nice-form-group">
+        <%= form.label :observe_date, 'Дата наблюдения' %>
+        <%= form.date_field :observe_date %>
+        <% @observation.errors.full_messages_for(:observe_date).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :sofa, 'Шкала SOFA' %>
+        <%= form.text_field :sofa, placeholder: "SOFA" %>
+        <% @observation.errors.full_messages_for(:sofa).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :gsc, 'Шкала комы Глазго' %>
+        <%= form.text_field :gsc, placeholder: "GCS (шкала комы глазго)" %>
+        <% @observation.errors.full_messages_for(:gsc).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :sistola, 'Систолическое АД' %>
+        <%= form.text_field :sistola, placeholder: "мм рутного столба" %>
+        <% @observation.errors.full_messages_for(:sistola).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :diastola, 'Диастолическое АД' %>
+        <%= form.text_field :diastola, placeholder: "мм рутного столба" %>
+        <% @observation.errors.full_messages_for(:diastola).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :meanbp, 'Среднее АД' %>
+        <%= form.text_field :meanbp, placeholder: "мм рутного столба" %>
+        <% @observation.errors.full_messages_for(:meanbp).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :heartrate, 'ЧСС' %>
+        <%= form.text_field :heartrate, placeholder: "ударов/мин" %>
+        <% @observation.errors.full_messages_for(:heartrate).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :temp, 'Температура' %>
+        <%= form.text_field :temp, placeholder: "℃" %>
+        <% @observation.errors.full_messages_for(:temp).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :ifusionvolume, 'Объем инфузии' %>
+        <%= form.text_field :ifusionvolume, placeholder: "мл" %>
+        <% @observation.errors.full_messages_for(:ifusionvolume).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :nutritionvolume, 'Объем питания' %>
+        <%= form.text_field :nutritionvolume, placeholder: "мл" %>
+        <% @observation.errors.full_messages_for(:nutritionvolume).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :diuresis, 'Диурез' %>
+        <%= form.text_field :diuresis, placeholder: "мл" %>
+        <% @observation.errors.full_messages_for(:diuresis).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :hydrobalance, 'Гидробаланс' %>
+        <%= form.text_field :hydrobalance, placeholder: "мл" %>
+        <% @observation.errors.full_messages_for(:hydrobalance).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :vasopressor, 'Уровень вазопрессорной поддержки' %>
+        <%= form.text_field :vasopressor, placeholder: "мкг/кг/мин" %>
+        <% @observation.errors.full_messages_for(:vasopressor).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+
+
+        <div class="nice-form-group">
+        <%= form.label :na, "НА, мкг/кг/мин" %>
+        <%= form.select :na, ["< 0,5", "> 0,5"] %>
+        <% @observation.errors.full_messages_for(:na).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+
+
+        <div class="nice-form-group">
+        <%= form.label :lactat, 'Лактат' %>
+        <%= form.text_field :lactat, placeholder: "ммоль/л" %>
+        <% @observation.errors.full_messages_for(:lactat).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+
+
+        <div class="nice-form-group">
+        <%= form.label :ivl, 'ИВЛ' %>
+        <%= form.select :ivl, ["Да", "Нет"] %>
+        <% @observation.errors.full_messages_for(:ivl).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :ivl, 'ЭКМО' %>
+        <%= form.select :ecmo, ["Да", "Нет"] %>
+        <% @observation.errors.full_messages_for(:ecmo).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+
+
+
+        <div class="nice-form-group">
+        <%= form.label :fio2, 'FiO2' %>
+        <%= form.text_field :fio2, placeholder: "FiO2" %>
+        <% @observation.errors.full_messages_for(:fio2).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :spo2, 'SpO2' %>
+        <%= form.text_field :spo2, placeholder: "SpO2" %>
+        <% @observation.errors.full_messages_for(:spo2).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :pao2, 'PaO2' %>
+        <%= form.text_field :pao2, placeholder: "PaO2" %>
+        <% @observation.errors.full_messages_for(:pao2).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :pfindex, 'P/F-индекс' %>
+        <%= form.text_field :pfindex, placeholder: "P/F-индекс" %>
+        <% @observation.errors.full_messages_for(:pfindex).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :sfindex, 'S/F-индекс' %>
+        <%= form.text_field :sfindex, placeholder: "S/F-индекс" %>
+        <% @observation.errors.full_messages_for(:sfindex).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :anuria, 'Факт анурии' %>
+        <%= form.select :anuria, ["Да", "Нет"] %>
+        <% @observation.errors.full_messages_for(:anuria).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :kdigo, 'ОПП KDIGO' %>
+        <%= form.select :kdigo, ["Да", "Нет"] %>
+        <% @observation.errors.full_messages_for(:kdigo).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :protinpee, 'Общий белок мочи' %>
+        <%= form.text_field :protinpee, placeholder: "г/л" %>
+        <% @observation.errors.full_messages_for(:protinpee).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :kreatinin, 'Креатинин' %>
+        <%= form.text_field :kreatinin, placeholder: "мкмоль/л" %>
+        <% @observation.errors.full_messages_for(:kreatinin).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :mochevina, 'Мочевина' %>
+        <%= form.text_field :mochevina, placeholder: "ммоль/л" %>
+        <% @observation.errors.full_messages_for(:mochevina).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :bilirubin, 'Билирубин' %>
+        <%= form.text_field :bilirubin, placeholder: "ммоль/л" %>
+        <% @observation.errors.full_messages_for(:bilirubin).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :kalius, 'Калий сыворотки' %>
+        <%= form.text_field :kalius, placeholder: "ммоль\л" %>
+        <% @observation.errors.full_messages_for(:kalius).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :natrius, 'Натрий сыворотки' %>
+        <%= form.text_field :natrius, placeholder: "ммоль\л" %>
+        <% @observation.errors.full_messages_for(:natrius).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :ph, 'Мочевина' %>
+        <%= form.text_field :ph, placeholder: "ммоль/л" %>
+        <% @observation.errors.full_messages_for(:ph).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :mochevina, 'pH артериальной крови' %>
+        <%= form.text_field :mochevina, placeholder: "pH артериальной крови" %>
+        <% @observation.errors.full_messages_for(:mochevina).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :hemoglob, 'Гемоглобин' %>
+        <%= form.text_field :hemoglob, placeholder: "г/л" %>
+        <% @observation.errors.full_messages_for(:hemoglob).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :gematocrit, 'Гематокрит' %>
+        <%= form.text_field :gematocrit, placeholder: "%" %>
+        <% @observation.errors.full_messages_for(:gematocrit).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :bleeding, 'Кровотечение' %>
+        <%= form.select :bleeding, ["Да", "Нет"] %>
+        <% @observation.errors.full_messages_for(:bleeding).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :transfusion, 'Трансфузия' %>
+        <%= form.select :transfusion, ["Да", "Нет"] %>
+        <% @observation.errors.full_messages_for(:transfusion).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :eritrocells, 'Эритроцитарная взвесь' %>
+        <%= form.text_field :eritrocells, placeholder: "Эритроцитарная взвесь" %>
+        <% @observation.errors.full_messages_for(:eritrocells).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :szp, 'СЗП' %>
+        <%= form.text_field :szp, placeholder: "мл" %>
+        <% @observation.errors.full_messages_for(:szp).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :tka, 'ТКА' %>
+        <%= form.text_field :tka, placeholder: "ТКА" %>
+        <% @observation.errors.full_messages_for(:tka).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :trombs, 'Тромбоз' %>
+        <%= form.select :trombs, ["Да", "Нет"] %>
+        <% @observation.errors.full_messages_for(:trombs).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :trc, 'Тр/ц' %>
+        <%= form.text_field :trc, placeholder: "10^9/л" %>
+        <% @observation.errors.full_messages_for(:trc).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :mho, 'МНО' %>
+        <%= form.text_field :mho, placeholder: "МНО" %>
+        <% @observation.errors.full_messages_for(:mho).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :anticoagul, 'Антикоагулянты' %>
+        <%= form.text_field :anticoagul, placeholder: "Антикоагулянты" %>
+        <% @observation.errors.full_messages_for(:anticoagul).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :lc, 'Л/ц' %>
+        <%= form.text_field :lc, placeholder: "10^9/л" %>
+        <% @observation.errors.full_messages_for(:lc).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :crp, 'СРП' %>
+        <%= form.text_field :crp, placeholder: "СРП" %>
+        <% @observation.errors.full_messages_for(:crp).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :rct, 'PCT' %>
+        <%= form.text_field :rct, placeholder: "нг/мл" %>
+        <% @observation.errors.full_messages_for(:rct).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :moblood, 'М/о кровь' %>
+        <%= form.text_field :moblood, placeholder: "М/о кровь" %>
+        <% @observation.errors.full_messages_for(:moblood).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :mopee, 'М/о моча' %>
+        <%= form.text_field :mopee, placeholder: "М/о моча" %>
+        <% @observation.errors.full_messages_for(:mopee).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :mobal, 'М/о БАЛ' %>
+        <%= form.text_field :mobal, placeholder: "М/о БАЛ" %>
+        <% @observation.errors.full_messages_for(:mobal).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :amtcorrection, 'Коррекция АМТ' %>
+        <%= form.text_field :amtcorrection, placeholder: "Коррекция АМТ " %>
+        <% @observation.errors.full_messages_for(:amtcorrection).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :amtcomment, 'Заметки по АМТ' %>
+        <%= form.text_field :amtcomment, placeholder: "Заметки по АМТ" %>
+        <% @observation.errors.full_messages_for(:amtcomment).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :sergery, 'Хир.вмешательство' %>
+        <%= form.select :sergery, ["Да", "Нет"] %>
+        <% @observation.errors.full_messages_for(:sergery).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :zpt, 'ЗПТ' %>
+        <%= form.select :zpt, ["Да", "Нет"] %>
+        <% @observation.errors.full_messages_for(:zpt).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :serbtion, 'Сорбция' %>
+        <%= form.select :serbtion, ["Да", "Нет"] %>
+        <% @observation.errors.full_messages_for(:serbtion).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :tpe, 'ТРЕ' %>
+        <%= form.select :tpe, ["Да", "Нет"] %>
+        <% @observation.errors.full_messages_for(:tpe).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :hdf, 'HDF' %>
+        <%= form.select :hdf, ["Да", "Нет"] %>
+        <% @observation.errors.full_messages_for(:hdf).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :expertmark, 'Экспертное мнение врача о состоянии пациента' %>
+        <%= form.select :expertmark, ["1 - плохое", "2 - средее", "3 - хорошее"] %>
+        <% @observation.errors.full_messages_for(:expertmark).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="nice-form-group">
+        <%= form.label :comment, 'Заметка врача' %>
+        <%= form.text_area :comment, placeholder: "Заметка врача" %>
+        <% @observation.errors.full_messages_for(:comment).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+      <details>
+        <summary>
+          <div class="toggle-code">
+            <%= form.submit "Сохранить", :class => "toggle-code" %>
+          </div>
+        </summary>
+      </details>
+    <% end %>  
+  </section>
+</main>
+</div>
+
+
